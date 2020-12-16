@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>proposer-trajet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img id="img1" src="assets/icon/man-searching-location-using-gps-2127154.png" >
+  <form>
+   
+    <ion-item lines="full">
+      <ion-label position="floating" >  D’où partez-vous ?</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating" >Où allez-vous?</ion-label>
+        <ion-input type="text"></ion-input>
+       
+      </ion-item>
+      <ion-item lines="full">
+
+        <ion-label position="floating" >Quand partez-vous ?
+        </ion-label>
+        <ion-input type="text" ></ion-input>
+
+    </ion-item>
+    <ion-item lines="full" >
+      <ion-label>À quelle heure souhaitez-vous retrouver vos passagers?</ion-label>
+      <ion-input type="text" ></ion-input>
+
+
+
+    </ion-item>
+  
+    <ion-item lines="full">
+
+      <ion-label position="floating" >Combien de passagers  pouvez-vous accepter ?</ion-label>
+      <ion-input type="text" ></ion-input>
+
+  </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Quelque chose à ajouter à propos de votre trajet ?</ion-label>
+      <ion-input type="password"  ></ion-input>
+
+    </ion-item>
+   
+  </form>
+
+  
+
+
+    <ion-item lines="full">
+
+  
+        <ion-button type="submit" color="secondary" expand="block" (click)="addPub()">Publier </ion-button>
+        <ion-button type="submit" color="danger" expand="block"  [routerLink]= "['/home']" >Annuler</ion-button>
+
+</ion-item>
+
+</ion-content>

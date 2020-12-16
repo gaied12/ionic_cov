@@ -2,8 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
 export const environment = {
-  production: false
+  production: false,
+  mapbox: {
+    accessToken: 'pk.eyJ1Ijoib3Vzc2FtYTEyIiwiYSI6ImNraXJ6cHBocjBndHkyc240b2dzMW15d3YifQ.vsdypEbiI9WS1eT8eF3TyQ'
+
+  }
+
 };
 
 /*

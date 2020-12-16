@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img id="img1" src="assets/icon/marginalia-687.png" >
+
+  <form [formGroup]="fLogin">
+   
+    <ion-item lines="full">
+      <ion-label position="floating" >Nom d'utilisateur</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+      <div id="error" *ngIf="this.fLogin.get('username').hasError('minlength') && this.fLogin.get('username').touched" > le Nom d'utlisateur doit être de 8 caractères minimum </div>
+      <div id="error" *ngIf="this.fLogin.get('username').hasError('required') && this.fLogin.get('username').touched" >Remplir le champ </div>
+      
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password"  formControlName="password"></ion-input>
+      <div id="error" *ngIf="this.fLogin.get('password').hasError('required') && this.fLogin.get('password').touched" >Remplir le champ </div>
+
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="secondary" expand="block" [disabled]="fLogin.invalid" (click)="login()">Connexion</ion-button>
+        <ion-button type="submit" color="secondary"  [routerLink]="['/register']"expand="block">Inscription</ion-button>
+<div style="text-align: center;">
+        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+      </div>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

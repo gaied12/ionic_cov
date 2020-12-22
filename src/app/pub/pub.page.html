@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pub</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <img id="img1" src="assets/icon/gummy-location.png" >
+  <ion-list>
+    <ion-item>
+      <ion-label>{{pub.dateAnnonce | date}}</ion-label>
+      <ion-icon name="calendar-outline"></ion-icon>                
+
+    </ion-item>
+    <ion-item>
+      <ion-label>{{pub.depart}}</ion-label>
+      <ion-icon name="locate-outline"></ion-icon>                
+
+    </ion-item>
+    <ion-item>
+      <ion-label>{{pub.destination}}</ion-label>
+      <ion-icon name="location-outline"></ion-icon>        
+
+    </ion-item>
+    <ion-item>
+      <ion-label>{{pub.heureDeDepart }}</ion-label>
+      <ion-icon name="time-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label *ngIf="this.nbPlace>0" >{{pub.nombreDePlace}} places disponibles        
+      </ion-label> 
+      <ion-icon  *ngIf="this.nbPlace>0" id="suc" name="checkmark-outline"></ion-icon>
+      <ion-label *ngIf="this.nbPlace==0" >itinéraire complet  </ion-label>
+      <ion-icon *ngIf="this.nbPlace==0" id="dang" name="close-outline"></ion-icon>
+     
+
+
+
+    </ion-item>
+    <ion-item>
+      <ion-label>{{pub.trajetDiscription}}  </ion-label>
+      <ion-icon name="alert-circle-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label>{{this.user.lastName}}  {{this.user.firstName}} </ion-label><ion-icon name="person-circle-outline"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{this.user.vMarque}} </ion-label> <ion-icon name="car-outline"></ion-icon>
+  </ion-item>
+  <ion-list style="text-align:center">
+
+  <ion-button color="primary" [disabled]="this.nbPlace==0" (click)="res()" >Réserver</ion-button>
+<ion-button color="danger" [routerLink]="['/home']">Annuler </ion-button>
+  </ion-list>
+
+  
+  </ion-content>

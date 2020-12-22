@@ -6,28 +6,40 @@
 
 <ion-content>
   <img id="img1" src="assets/icon/man-searching-location-using-gps-2127154.png" >
-  <form>
+  <form [formGroup]="fPub">
    
     <ion-item lines="full">
-      <ion-label position="floating" >  D’où partez-vous ?</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label position="floating"  >  D’où partez-vous ?</ion-label>
+      <ion-input type="text" formControlName="depart" (ionChange)="search($event)" [value]="selectedAddress"></ion-input>
+      <ion-list lines="none" *ngIf="addresses.length > 0">
+        <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
+          <ion-icon name="pin"></ion-icon>
+          {{ address }}
+        </ion-item>
+      
+      </ion-list>
     </ion-item>
       <ion-item lines="full">
         <ion-label position="floating" >Où allez-vous?</ion-label>
-        <ion-input type="text"></ion-input>
-       
+        <ion-input type="text"  type="text" formControlName="destination" (ionChange)="search1($event)" [value]="selectedAddress1"></ion-input>
+        <ion-list lines="none" *ngIf="addresses1.length > 0">
+          <ion-item button *ngFor="let address of addresses1" (click)="onSelect1(address)">
+            <ion-icon name="pin"></ion-icon>
+            {{ address }}
+  
+      </ion-item>
+      </ion-list>
       </ion-item>
       <ion-item lines="full">
 
-        <ion-label position="floating" >Quand partez-vous ?
-        </ion-label>
-        <ion-input type="text" ></ion-input>
-
+        <ion-label position="floating" >Quand partez-vous ? </ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY"  formControlName="dateAnnonce" ></ion-datetime>
     </ion-item>
     <ion-item lines="full" >
-      <ion-label>À quelle heure souhaitez-vous retrouver vos passagers?</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-label position="floating" >À quelle heure souhaitez-vous retrouver vos passagers?</ion-label>
+      <ion-datetime displayFormat=" HH:mm" formControlName="heureDeDepart" ></ion-datetime>
 
+     
 
 
     </ion-item>
@@ -35,28 +47,28 @@
     <ion-item lines="full">
 
       <ion-label position="floating" >Combien de passagers  pouvez-vous accepter ?</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input type="number"  min="1" max="5" formControlName="nombreDePlace" ></ion-input>
 
   </ion-item>
 
 
     <ion-item lines="full">
       <ion-label position="floating">Quelque chose à ajouter à propos de votre trajet ?</ion-label>
-      <ion-input type="password"  ></ion-input>
-
+      <ion-textarea formControlName="trajetDiscription">
+    </ion-textarea>
     </ion-item>
    
   </form>
+  <p> {{date| date:'h:mm a '}}</p>
 
   
 
 
-    <ion-item lines="full">
+  <ion-list style="text-align:center">
 
   
-        <ion-button type="submit" color="secondary" expand="block" (click)="addPub()">Publier </ion-button>
-        <ion-button type="submit" color="danger" expand="block"  [routerLink]= "['/home']" >Annuler</ion-button>
+        <ion-button color="secondary"  (click)="addPub()">Publier </ion-button>
+        <ion-button color="danger"  [routerLink]= "['/home']" >Annuler</ion-button>
 
-</ion-item>
-
+  </ion-list>
 </ion-content>

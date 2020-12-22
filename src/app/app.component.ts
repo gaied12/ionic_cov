@@ -32,6 +32,11 @@ export class AppComponent implements OnInit {
       title: 'Vos trajet',
       url: '/vos-trajet',
       icon: 'car'
+    },
+    {
+      title: 'Deconnexion',
+      url: '/logout',
+      icon: 'log-out'
     }
   ];
    

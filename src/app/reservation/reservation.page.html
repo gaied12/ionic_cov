@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>reservation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img id="img1"src="assets/icon/location,map,navigation,find location,find,direction,gps,man,young man,folded map,folded,pin,vacation,lifestyle,child,tourism,summer,adventure,travel,activity,holiday,1737301.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Récapitulatif de trajet
+      </ion-card-title>
+    <!-- List of Text Items -->
+<ion-list>
+  <ion-item>
+    <ion-label>  <img src="assets/icon/map.png"/> {{distance}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label> <img src="assets/icon/location-time.png"/>{{time}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label><img src="assets/icon/location.png"/>{{depart}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label><img src="assets/icon/map (1).png"/>{{destination}}</ion-label>
+  </ion-item>
+  <ion-list style="text-align:center">
+
+    <ion-button color="primary"  (click)="addRes()" >Confirmer la Réservation</ion-button>
+  <ion-button color="danger" [routerLink]="['/home']">Annuler </ion-button>
+    </ion-list>
+  
+  
+</ion-list>
+
+     
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>

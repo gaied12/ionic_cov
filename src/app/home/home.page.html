@@ -5,5 +5,56 @@
 </ion-header>
 
 <ion-content>
+  <ion-card id="card" *ngFor="let pub of listPub" routerLink='/pub/{{pub.id}}'>
+    <img id="img1" src="assets/icon/navigation,location,map,pin,direction,gps,arrow,pointer,marker,place,businessman finding location,businessman,location-pin,finding location,finding,search place,find place,freebies,web,webpage,1750496.png" />
+    <ion-card-header>
+      <ion-card-subtitle> </ion-card-subtitle>
+      <ion-card-title>  </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+
+        <ion-label>
+          publié le {{toDate(pub.Datecreation) }} à  {{toTime(pub.Datecreation) }} 
+                </ion-label>
+                <ion-icon name="calendar-outline"></ion-icon>
+
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+       {{ pub.depart}} 
+                </ion-label>
+                <ion-icon name="locate-outline"></ion-icon>                
+        
+
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+          {{ pub.destination}} 
+        </ion-label>
+                <ion-icon name="location-outline"></ion-icon>        
+
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+          Disponibilité
+                </ion-label>
+                <div *ngIf="this.verifPlace(pub.nombreDePlace)==true"><ion-icon id="suc" name="checkmark-outline"></ion-icon> </div>
+                <div *ngIf="this.verifPlace(pub.nombreDePlace)==false"><ion-icon id="dang" name="close-outline"></ion-icon></div>
+
+
+      </ion-item>
+      
+      
+      
+      
+      
+      
+       </ion-card-content>
+  </ion-card>
+  
 
 </ion-content>
